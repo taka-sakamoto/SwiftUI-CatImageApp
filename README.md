@@ -7,6 +7,7 @@
 - SwiftUI
 - URLSession
 - JSONDecoder
+- MVVM
 
 ## Screenshot
 <p align="center">
