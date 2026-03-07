@@ -20,6 +20,6 @@
 
 ## Screenshot
 <p align="center">
-  <img src="catimageapp01.png" width="250">
-  <img src="catimageapp02.png" width="250">
+  <img src="catimageapp03.png" width="250">
+  <img src="catimageapp04.png" width="250">
 </p>
