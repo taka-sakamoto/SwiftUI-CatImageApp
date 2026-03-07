@@ -20,7 +20,6 @@ struct ContentView: View {
             } else {
                 
                 List(viewModel.cats) { cat in
-                    
                     AsyncImage(url: URL(string: cat.url)) { image in
                         image
                             .resizable()
@@ -31,17 +30,17 @@ struct ContentView: View {
                     .frame(height: 200)
                     .clipped()
                 }
-                refreshable {
+                .refreshable {
                     await viewModel.fetchCats()
                 }
             }
         }
-            .navigationTitle("Cats")
-            .task {
-                await viewModel.fetchCats()
-            }
+        .navigationTitle("Cats")
+        .task {
+            await viewModel.fetchCats()
         }
     }
+}
 
 
 /*
