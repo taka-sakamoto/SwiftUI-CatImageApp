@@ -7,7 +7,8 @@
 
 import SwiftUI
 
-struct Cat: Decodable {
+struct Cat: Decodable, Identifiable {
+    let id: String
     let url: String
 }
 

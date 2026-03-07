@@ -9,36 +9,43 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @StateObject var vm = CatViewModel()
+    @StateObject var viewModel = CatViewModel()
     
     var body: some View {
-        VStack(spacing: 20) {
-            // タイトル
-            Text("Cat Image App")
-                .font(.title)
+        
+        NavigationView {
             
-            if let url = URL(string: vm.imageUrl) {
-                AsyncImage(url: url) { image in
-                    image
-                    .resizable()
-                    .scaledToFit()
-                } placeholder: {
-                    // 読み込み中
-                    ProgressView("Loading...")
+            if viewModel.isLoading {
+                ProgressView()
+            } else {
+                
+                List(viewModel.cats) { cat in
+                    
+                    AsyncImage(url: URL(string: cat.url)) { image in
+                        image
+                            .resizable()
+                            .scaledToFill()
+                    } placeholder: {
+                        ProgressView()
+                    }
+                    .frame(height: 200)
+                    .clipped()
                 }
-                .frame(height: 300)
-            }
-            Button("猫画像取得") {
-                vm.fetchCat()
+                refreshable {
+                    await viewModel.fetchCats()
+                }
             }
         }
-        .padding()
-        .onAppear {
-            vm.fetchCat()
+            .navigationTitle("Cats")
+            .task {
+                await viewModel.fetchCats()
+            }
         }
     }
-}
 
+
+/*
 #Preview {
     ContentView()
 }
+*/

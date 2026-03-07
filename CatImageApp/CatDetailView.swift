@@ -8,11 +8,22 @@
 import SwiftUI
 
 struct CatDetailView: View {
+ 
+    let cat: Cat
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        AsyncImage(url: URL(string: cat.url)) { Image in
+            Image
+                .resizable()
+                .scaledToFit()
+        } placeholder: {
+            ProgressView()
+        }
+        .navigationTitle("Cat")
     }
 }
 
+/*
 #Preview {
     CatDetailView()
 }
+*/

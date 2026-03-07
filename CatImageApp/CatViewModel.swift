@@ -9,26 +9,26 @@ import Foundation
 import SwiftUI
 import Combine
 
+@MainActor
 class CatViewModel: ObservableObject {
     
-    @Published var imageUrl: String = ""
+    @Published var cats: [Cat] = []
+    @Published var isLoading = false
     
-    func fetchCat() {
+    func fetchCats() async {
         
-        guard let url = URL(string: "https:/api.thecatapi.com/v1/images/search") else { return }
+        guard let url = URL(string: "https://api.thecatapi.com/v1/images/search?limit=10") else { return }
         
-        URLSession.shared.dataTask(with: url) { data, _, _ in
-            guard let data = data else { return }
             do {
-                let cats = try JSONDecoder().decode([Cat].self, from: data)
+                let (data, _) = try await URLSession.shared.data(from: url)
                 
-                DispatchQueue.main.async {
-                    self.imageUrl = cats.first?.url ?? ""
-                }
+                let decoded = try JSONDecoder().decode([Cat].self, from: data)
+                
+                cats = decoded
                 
             } catch {
-                print(error)
+                print("Error: \(error)")
             }
-        } .resume()
-    }
+        }
+    
 }
