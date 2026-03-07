@@ -20,22 +20,28 @@ struct ContentView: View {
             } else {
                 
                 List(viewModel.cats) { cat in
-                    AsyncImage(url: URL(string: cat.url)) { image in
-                        image
-                            .resizable()
-                            .scaledToFill()
-                    } placeholder: {
-                        ProgressView()
+                
+                    NavigationLink {
+                        CatDetailView(cat: cat)
+                    } label: {
+                        
+                        AsyncImage(url: URL(string: cat.url)) { image in
+                            image
+                                .resizable()
+                                .scaledToFill()
+                        } placeholder: {
+                            ProgressView()
+                        }
+                        .frame(height: 200)
+                        .clipped()
                     }
-                    .frame(height: 200)
-                    .clipped()
                 }
                 .refreshable {
                     await viewModel.fetchCats()
                 }
+                .navigationTitle("Cats")
             }
         }
-        .navigationTitle("Cats")
         .task {
             await viewModel.fetchCats()
         }
