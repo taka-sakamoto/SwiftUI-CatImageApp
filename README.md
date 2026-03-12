@@ -9,7 +9,15 @@
 - MVVM  
 - Async/Await  
 - URLSession  
-- JSONDecoder  
+- JSONDecoder
+
+## Architecture
+MVVM
+
+## State Management
+- @StateObject
+- ObservableObject
+- @Published
 
 ## Features
 - Fetch cat images from API  
