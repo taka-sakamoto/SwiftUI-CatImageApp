@@ -11,9 +11,6 @@
 - URLSession  
 - JSONDecoder
 
-## Architecture
-MVVM
-
 ## State Management
 - @StateObject
 - ObservableObject
