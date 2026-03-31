@@ -4,7 +4,7 @@
 ![Favorites](screenshot2.png)
 ![Detail](screenshot3.png)
 
-猫画像を閲覧・お気に入り登録できるiOSアプリです。    
+猫画像を一覧で閲覧し、お気に入り登録・管理ができるiOSアプリです。  
 APIから画像を取得し、お気に入り機能を実装しています。
 
 ---
@@ -25,10 +25,10 @@ SwiftUIの基本構成（MVVM・状態管理・非同期通信）を意識して
 ---
 
 ## ■ 使用技術
-- SwiftUI
+- SwiftUI（UI構築）
 - MVVMアーキテクチャ
 - async / await（非同期通信）
-- UserDefaults（お気に入り保存）
+- UserDefaults（ローカル保存）
 - REST API（The Cat API）
 
 ---
@@ -45,6 +45,7 @@ SwiftUIの基本構成（MVVM・状態管理・非同期通信）を意識して
 - 画像の縦横比によるUI崩れや重なり問題の解決
 - SwiftUIのView再利用（id管理）による表示不具合の対応
 - AsyncImageのキャッシュ挙動による画像未表示問題
+- 画面間での状態共有をViewModelで一元管理し、即時反映を実現
 
 ---
 
@@ -66,3 +67,7 @@ SwiftUIの基本構成（MVVM・状態管理・非同期通信）を意識して
 
 ---
 
+## ■ 補足
+実務を想定し、UI/UXと状態管理の安定性を意識して開発しました。
+
+---
