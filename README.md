@@ -66,13 +66,3 @@ SwiftUIの基本構成（MVVM・状態管理・非同期通信）を意識して
 
 ---
 
-## ■ 画面イメージ
-
-### Cats画面
-![Cats](screenshot1.png)
-
-### Favorites画面
-![Favorites](screenshot2.png)
-
-### 詳細画面
-![Detail](screenshot3.png)
