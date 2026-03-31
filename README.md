@@ -1,6 +1,10 @@
 # Cat Image App 🐱
 
-SwiftUIで開発した猫画像アプリです。  
+![Cats](screenshot1.png)
+![Favorites](screenshot2.png)
+![Detail](screenshot3.png)
+
+猫画像を閲覧・お気に入り登録できるiOSアプリです。    
 APIから画像を取得し、お気に入り機能を実装しています。
 
 ---
@@ -30,11 +34,10 @@ SwiftUIの基本構成（MVVM・状態管理・非同期通信）を意識して
 ---
 
 ## ■ 工夫した点
-- LazyVGridを使った2カラムレイアウトの実装
-- 画像サイズの違いによるレイアウト崩れを修正
-- AsyncImageで発生する再描画問題を解決するため、独自のImageLoaderを実装
-- お気に入りの即時反映（状態管理の最適化）
-- 画面遷移時のView再利用による不具合を解消
+- AsyncImageの再描画問題に対して独自のImageLoaderを実装し安定化
+- LazyVGridのレイアウト崩れを固定サイズ設計で解決
+- SwiftUIのView再利用による不具合をid管理で制御
+- SwiftUIの学習やAPI連携のサンプルとしても活用できます。
 
 ---
 
